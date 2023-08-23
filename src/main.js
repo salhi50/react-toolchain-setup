@@ -17,3 +17,4 @@ console.log(text);
 console.log(painImageWithURL);
 console.log(sum(5,6));
 console.log(factorial(4));
+console.log(process.env.NODE_ENV);
