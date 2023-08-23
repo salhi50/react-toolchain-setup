@@ -1,4 +1,5 @@
 const path = require("path");
+const HTMLWebpackPligin = require("html-webpack-plugin");
 
 
 const config = {
@@ -48,7 +49,13 @@ const config = {
         // type: "asset/inline", // Get file data url
       },
     ]
-  }
+  },
+  plugins: [
+    new HTMLWebpackPligin({
+      title: "My website",
+      template: "../public/index.html"
+    })
+  ]
 };
 
 module.exports = config;
