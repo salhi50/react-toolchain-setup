@@ -1,12 +1,15 @@
 const path = require("path");
 const HTMLWebpackPligin = require("html-webpack-plugin");
 
+const buildDir = path.resolve(__dirname, "build");
 
 const config = {
+  mode: "development",
+  devtool: "inline-source-map",
   context: path.resolve(__dirname, "src"),
   entry: "./main.js",
   output: {
-    path: path.resolve(__dirname, "build"),
+    path: buildDir,
     filename: "bundle.js",
     clean: true,
     assetModuleFilename: "assets/[name].[id][ext][query]"
@@ -55,7 +58,10 @@ const config = {
       title: "My website",
       template: "../public/index.html"
     })
-  ]
+  ],
+  devServer: {
+    static: buildDir
+  }
 };
 
 module.exports = config;
