@@ -1,11 +1,11 @@
-import _ from "lodash"
+import _ from "_";
 import "./assets/style.css";
 import pain from "./assets/pain.jpg";
-import jsonData from "./data/data.json";
-import yamlData from "./data/data.yaml";
-import text from "./data/text.txt";
+import jsonData from "data/data.json";
+import yamlData from "data/data.yaml";
+import text from "data/text.txt";
 const painImageWithURL = new URL('./assets/pain.jpg', import.meta.url);
-import { sum, factorial } from "./utilities";
+import { sum, factorial } from "utils";
 
 console.log(_.camelCase("mohammed ali essalihi"));
 console.log(_.capitalize("mohammed ali essalihi"));

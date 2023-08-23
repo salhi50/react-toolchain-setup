@@ -55,6 +55,17 @@ const commonConfig = {
       template: "../public/index.html"
     })
   ],
+  resolve: {
+    modules: ["node_modules"], // default
+    alias: {
+      _: "lodash", // alias for module path
+      utils$: "./utilities.js", // exact match,
+      data: "./data/" // alias for relative path
+    },
+    // Fields in package.json that are used for resolving module requests
+    exportsFields: ["exports"], // default
+    extensions: [".js", ".json", ".wasm"] // default
+  },
 }
 
 module.exports = commonConfig;
