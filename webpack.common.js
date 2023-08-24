@@ -3,7 +3,7 @@ const HTMLWebpackPligin = require("html-webpack-plugin");
 
 const commonConfig = {
   context: path.resolve(__dirname, "src"),
-  entry: "./main.js",
+  entry: "./main.ts",
   output: {
     path: path.resolve(__dirname, "build"),
     filename: "bundle.js",
@@ -36,10 +36,12 @@ const commonConfig = {
           filename: "assets/fonts/[name].[id][ext][query]"
         }
       },
+      // Loading yaml data
       {
         test: /\.yaml$/i,
         use: "yaml-loader"
       },
+      // Loading texts
       {
         test: /\.txt$/i,
         type: "asset/source",
@@ -47,6 +49,12 @@ const commonConfig = {
         // type: "asset/source", // Get the text content of the file
         // type: "asset/inline", // Get file data url
       },
+      // Loading typescript
+      {
+        test: /\.ts(x)?$/,
+        use: "ts-loader",
+        exclude: /node_modules/
+      }
     ]
   },
   plugins: [
@@ -59,12 +67,12 @@ const commonConfig = {
     modules: ["node_modules"], // default
     alias: {
       _: "lodash", // alias for module path
-      utils$: "./utilities.js", // exact match,
+      utils: "./utilities.ts", // exact match,
       data: "./data/" // alias for relative path
     },
     // Fields in package.json that are used for resolving module requests
     exportsFields: ["exports"], // default
-    extensions: [".js", ".json", ".wasm"] // default
+    extensions: [".tsx", ".ts", ".js"] // default
   },
 }
 
