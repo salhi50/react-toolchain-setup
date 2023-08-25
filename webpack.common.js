@@ -3,7 +3,7 @@ const HTMLWebpackPligin = require("html-webpack-plugin");
 
 const commonConfig = {
   context: path.resolve(__dirname, "src"),
-  entry: "./main.ts",
+  entry: "./main.tsx",
   output: {
     path: path.resolve(__dirname, "build"),
     filename: "bundle.js",
@@ -49,10 +49,10 @@ const commonConfig = {
         // type: "asset/source", // Get the text content of the file
         // type: "asset/inline", // Get file data url
       },
-      // Loading typescript
+      // Loading react and typescript
       {
-        test: /\.ts(x)?$/,
-        use: "ts-loader",
+        test: /\.(tsx?|jsx?)$/,
+        use: "babel-loader",
         exclude: /node_modules/
       }
     ]
